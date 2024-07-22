@@ -1,4 +1,5 @@
-import { Button, Stack } from "@mui/material";
+import {  Stack } from "@mui/material";
+import Link from "next/link";
 import { useRouter } from "next/router";
 
 export default function Navbar() {
@@ -6,24 +7,21 @@ export default function Navbar() {
     const currentPage = router.pathname;
     return (
         <Stack direction="row">
-            <Button
-                onClick={() => router.push('/')}
-                style={{ color: getTabTextColor(currentPage, '/') }}
-            >
+            <Link href='/' style={{ color: getTabTextColor(currentPage, '/') }}>
                 Home
-            </Button>
-            <Button
-                onClick={() => router.push('/photography')}
+            </Link>
+            <Link
+                href='/photography'
                 style={{ color: getTabTextColor(currentPage, '/photography') }}
             >
                 Film Photography
-            </Button>
-            <Button
-                onClick={() => router.push('/threejs')}
+            </Link>
+            <Link
+                href="/threejs"
                 style={{ color: getTabTextColor(currentPage, '/threejs') }}
             >
                 ThreeJS
-            </Button>
+            </Link>
         </Stack>
     );
 }

@@ -1,19 +1,18 @@
-import { extend, useFrame } from '@react-three/fiber'
 import { useGLTF, useTexture, shaderMaterial, Sparkles } from '@react-three/drei'
 import { useRef } from 'react'
-import * as THREE from 'three'
-import Bulb from './bulb'
+import Bulb from './Bulb'
+import { Texture } from 'three'
 
 const Portal = props => {
     const firefliesScale = Array.from({ length: 80 }, () => 0.5 + Math.random() * 5)
-    const bakedTexture = useTexture(props.texturePath)
+    const bakedTexture = useTexture(props.texturePath) as Texture
     const { nodes } = Array.isArray(useGLTF(props.path)) ? useGLTF(props.path)[0] : useGLTF(props.path);
 
     const portal = useRef()
 
     return (
         <group ref={portal}>
-            <Sparkles count={firefliesScale.length} size={firefliesScale} position={[-4, 4, 0]} scale={[10, 4, 10]} speed={0.3} />
+            <Sparkles count={firefliesScale.length} size={20} position={[-4, 4, 0]} scale={[10, 4, 10]} speed={0.3} />
             <mesh
                 geometry={nodes.portalLight.geometry}
                 position={[-3.8, 1.97, -4.2]}

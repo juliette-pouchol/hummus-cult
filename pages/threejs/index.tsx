@@ -1,10 +1,10 @@
 import { Canvas } from '@react-three/fiber';
 import { CameraControls } from '@react-three/drei'
 import { ReactElement } from 'react';
-import Bulb from '../components/bulb';
+import Bulb from '../components/Bulb';
 import Models from '../components/Models';
 import { Stack } from '@mui/material';
-import Layout from '../components/layout';
+import Layout from '../components/Layout';
 
 
 const Carousel = () => {

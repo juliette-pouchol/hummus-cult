@@ -1,5 +1,5 @@
 import { Canvas } from '@react-three/fiber';
-import Bulb from './bulb'
+import Bulb from './Bulb'
 import Models from './Models'
 import CameraControls from './CameraControls'
 

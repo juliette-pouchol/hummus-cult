@@ -6,7 +6,7 @@ import ocean_beach_03 from "../../images/ocean03.jpg"
 import city01 from "../../images/city01.jpg"
 import { ReactElement, useState } from "react";
 import { StaticImageData } from "next/image";
-import Layout from '../components/layout'
+import Layout from '../components/Layout'
 
 interface TabPanelProps {
     children?: React.ReactNode;
