@@ -1,24 +1,21 @@
-import { Canvas } from '@react-three/fiber';
-import Bulb from './Bulb'
-import Models from './Models'
-import CameraControls from './CameraControls'
+import { Canvas } from "@react-three/fiber";
+import Bulb from "./Bulb";
+import Models from "./Models";
+import CameraControls from "./CameraControls";
+import { Typography } from "@mui/material";
 
 const Carousel = () => {
   return (
     <section className="section">
       <Canvas
         shadows
-        style={{ background: 'black' }}
+        style={{ background: "black" }}
         camera={{ position: [6, 6, 6] }}
       >
-        <ambientLight intensity={0.2} />
-        <CameraControls />
-
-        <Bulb position={[14, 6, 0]} />
-        <Models />
+        <Typography>Hi there</Typography>
       </Canvas>
     </section>
-  )
-}
+  );
+};
 
 export default Carousel;

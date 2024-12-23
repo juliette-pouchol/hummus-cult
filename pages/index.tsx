@@ -1,5 +1,5 @@
-import App from "./components/App";
+import App from "./playground";
 
 export default function HomePage() {
-    return <App/>
+  return <App />;
 }
