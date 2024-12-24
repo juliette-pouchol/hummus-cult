@@ -9,7 +9,7 @@ import { LIGHT_TOKENS, DARK_TOKENS } from "../src/constants";
 import Header from "../src/components/Header/Header";
 import "./styles.css";
 import { useAtom } from "jotai";
-import { themeAtom } from "./atoms/themeAtoms";
+import { themeAtom } from "./atoms/atoms";
 
 const mainFont = Work_Sans({
   subsets: ["latin"],

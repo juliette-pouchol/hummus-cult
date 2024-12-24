@@ -1,122 +1,143 @@
 "use client";
-import { Stack } from "@mui/material";
+import { Stack, Typography } from "@mui/material";
 import React, { useState } from "react";
-import founders from "/public/images/hummus-cult/founders.png";
-import lemonBuddha from "/public/images/hummus-cult/lemon-buddha.png";
-import garlicJesus from "/public/images/hummus-cult/garlic-jesus.png";
-import Banner from "../../src/components/Banner/Banner";
-import { MotionImage } from "../../src/components/MotionComponents";
-import TabItem from "../../src/components/TabItem";
+import { MotionDiv, MotionImage } from "../../src/components/MotionComponents";
+import lemon from "../../images/hummus-cult/lemon.png";
+import garlic from "../../images/hummus-cult/garlic.png";
+import lemonBuddha from "../../images/hummus-cult/lemon-buddha.png";
+import garlicJesus from "../../images/hummus-cult/garlic-jesus.png";
 
 const HummusCultPage = () => {
   return (
-    <Stack gap={5} maxWidth="900px" justifySelf="center">
-      <OurFlavoursSection />
-      <OurMission />
+    <Stack
+      backgroundColor="white"
+      width="100%"
+      minHeight="300vh"
+      marginTop="-80px"
+      paddingTop="calc(64px + 2.5rem)"
+      paddingBottom={10}
+      gap={5}
+      alignItems="center"
+      sx={{ position: "relative", zIndex: 0 }}
+    >
+      <Typography variant="h1" fontFamily="Milau">
+        Hummus Cult
+      </Typography>
+      <ImagesSection />
     </Stack>
   );
 };
 
-function OurMission() {
-  return (
-    <Stack
-      id="our-mission"
-      display="flex"
-      alignItems="center"
-      marginX="120px"
-      gap={2}
-    >
-      <Banner title="Mission" />
-      <Stack maxWidth="100%">
-        <img src={founders.src} />
-      </Stack>
-    </Stack>
-  );
-}
-
-function OurFlavoursSection() {
-  const [currTab, setCurrTab] = useState("lemonBuddha");
-  const handleChange = (newValue: string) => {
-    setCurrTab(newValue);
+function ImagesSection() {
+  const [scrollY, setScrollY] = useState(0);
+  const handleScroll = () => {
+    setScrollY(window.scrollY);
   };
+
+  React.useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  // Calculate positions based on scroll
+  const maxScroll = 300; // Point at which images reach final position
+  const progressX = Math.min(scrollY / maxScroll, 1.5);
+  const progressY = Math.min(scrollY / maxScroll, 3);
+  // Initial and final positions
+  const leftImageStartX = -50;
+  const leftImageEndX = 90;
+  const leftImageStartY = 180;
+  const leftImageEndY = 200; // Lower position
+
+  const rightImageStartX = 250;
+  const rightImageEndX = 70;
+  const rightImageStartY = 0;
+  const rightImageEndY = 0; // Higher position
+
+  // Calculate current positions
+  const leftImageX =
+    leftImageStartX + (leftImageEndX - leftImageStartX) * progressX * 2;
+  const leftImageY = leftImageStartY + progressY * 320;
+  const rightImageX =
+    rightImageStartX + (rightImageEndX - rightImageStartX) * progressX * 2;
+  const rightImageY = rightImageStartY + progressY * 220;
+  const leftImageScale = 1 - progressY * 0.05;
+  const rightImageScale = 1 - progressY * 0.05;
+
+  const decorationOpacity = Math.min(0 + progressY * 1.4, 0.3);
+  const garlicX = Math.min(0 + progressY * -120, -200);
+  const garlicY = Math.min(0 + progressY * 100, 100);
+  const lemonX = Math.min(0 + progressY * 150, 400);
+  const lemonY = Math.min(0 + progressY * 100, 100);
+
   return (
-    <Stack
-      id="our-flavours"
-      display="flex"
-      alignItems="center"
-      marginX="120px"
-      height="600px"
-    >
-      <Banner title="Flavours" />
-      <Stack direction="row" gap={2}>
-        <TabItem
-          title="Lemon Buddha"
-          isActive={currTab === "lemonBuddha"}
-          onClick={handleChange}
-          id="lemonBuddha"
-        />
-        <TabItem
-          title="Garlic Jesus"
-          isActive={currTab === "garlicJesus"}
-          onClick={handleChange}
-          id="garlicJesus"
-        />
-      </Stack>
-      <Stack
-        direction="row"
-        gap={2}
-        display="flex"
-        justifyContent="center"
-        position="relative"
-        width="100%"
+    <Stack id="our-flavours" display="flex" alignItems="center" height="600px">
+      <MotionDiv
+        animate={{
+          x: leftImageX,
+          y: leftImageY,
+          scale: leftImageScale,
+        }}
+        transition={{
+          stiffness: 50,
+          damping: 30,
+          mass: 2,
+        }}
+        style={{
+          width: "600px",
+          position: "absolute",
+        }}
       >
-        <MotionImage
-          style={{
-            maxWidth: "390px",
-            position: "absolute",
-            overflow: "hidden",
-          }}
-          initial={{
-            x: "0%",
-            opacity: 0,
-          }}
-          transition={{
-            duration: 0.5,
-            ease: "easeInOut",
-            delay: currTab === "lemonBuddha" ? 0.1 : 0,
-          }}
-          animate={{
-            x: currTab === "lemonBuddha" ? "0%" : "-100%",
-            opacity: currTab === "lemonBuddha" ? 1 : 0,
-            display: currTab === "lemonBuddha" ? "block" : "none",
-          }}
-          src={lemonBuddha.src}
-          alt="img"
-        />
-        <MotionImage
-          style={{
-            maxWidth: "390px",
-            position: "absolute",
-          }}
-          initial={{
-            x: "100%",
-            opacity: 0,
-            display: "none",
-          }}
-          transition={{
-            duration: 0.5,
-            ease: "easeInOut",
-            delay: currTab === "garlicJesus" ? 0.1 : 0,
-          }}
-          animate={{
-            x: currTab === "garlicJesus" ? "0%" : "100%",
-            opacity: currTab === "garlicJesus" ? 1 : 0,
-            display: currTab === "garlicJesus" ? "block" : "none",
-          }}
-          src={garlicJesus.src}
-          alt="img"
-        />
-      </Stack>
+        <Stack direction="row" gap={2}>
+          <MotionImage
+            animate={{
+              opacity: decorationOpacity,
+              x: garlicX,
+              y: garlicY,
+              width: "600px",
+            }}
+            initial={{ opacity: 0 }}
+            transition={{ duration: 1 }}
+            src={garlic.src}
+          />
+          <MotionImage
+            style={{ position: "absolute", width: "500px" }}
+            src={garlicJesus.src}
+          />
+        </Stack>
+      </MotionDiv>
+      <MotionDiv
+        animate={{
+          x: rightImageX,
+          y: rightImageY,
+          scale: rightImageScale,
+        }}
+        transition={{
+          stiffness: 50,
+          damping: 30,
+          mass: 2,
+        }}
+        style={{
+          width: "600px",
+          position: "absolute",
+        }}
+      >
+        <Stack direction="row" gap={2}>
+          <MotionImage
+            style={{ width: "500px" }}
+            src={lemon.src}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: decorationOpacity, x: lemonX, y: lemonY }}
+            transition={{ duration: 1 }}
+          />
+          <MotionImage
+            style={{ position: "absolute", width: "500px" }}
+            src={lemonBuddha.src}
+          />
+        </Stack>
+      </MotionDiv>
     </Stack>
   );
 }

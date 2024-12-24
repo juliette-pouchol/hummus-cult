@@ -2,7 +2,7 @@ import { useGLTF, useTexture, Sparkles } from "@react-three/drei";
 import { useRef, useEffect } from "react";
 import { Texture } from "three";
 import { Group } from "three";
-import { themeAtom } from "../../app/atoms/themeAtoms";
+import { themeAtom } from "../../app/atoms/atoms";
 import { useAtom } from "jotai";
 
 const Portal = (props: any) => {
