@@ -50,6 +50,7 @@ html {
   --trimmed-content-width: calc(
     var(--content-width) - var(--viewport-padding) * 2
   );
+  height: 100%;
 }
 
 @media (min-width: 35rem) {
@@ -81,7 +82,6 @@ html {
   color: var(--color-text);
   font-family: var(--font-family), sans-serif;
   letter-spacing: -0.03125em;
-  background: var(--color-backdrop-highlight);
 }
 
 
@@ -90,7 +90,6 @@ body {
   min-height: 100svh;
   display: flex;
   flex-direction: column;
-  background: var(--color-backdrop);
   border-bottom: 3px solid var(--color-decorative-600);
 }
 
@@ -102,11 +101,6 @@ body::before {
   left: 0;
   right: 0;
   height: 50vh;
-  background: linear-gradient(
-    to top,
-    var(--color-backdrop),
-    var(--color-backdrop-highlight)
-  );
 }
 
 body > main {

@@ -1,10 +1,5 @@
-"use client";
-import { Stack, Typography } from "@mui/material";
-import ThreeJs from "./threejs/page";
-import styles from "./Home.module.css";
+import HummusCultPage from "./hummus-cult/HummusCult";
 
-function App() {
-  return <ThreeJs />;
+export default function App() {
+  return <HummusCultPage />;
 }
-
-export default App;

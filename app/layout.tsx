@@ -6,10 +6,10 @@ import clsx from "clsx";
 
 import { LIGHT_TOKENS, DARK_TOKENS } from "../src/constants";
 
-import Header from "../src/components/Header/Header";
 import "./styles.css";
 import { useAtom } from "jotai";
 import { themeAtom } from "./atoms/atoms";
+import Header from "../src/components/Header/Header";
 
 const mainFont = Work_Sans({
   subsets: ["latin"],
@@ -23,7 +23,6 @@ const monoFont = Spline_Sans_Mono({
   weight: "variable",
   variable: "--font-family-mono",
 });
-
 function RootLayout({ children }) {
   const [theme, setTheme] = useAtom(themeAtom);
 
@@ -39,11 +38,10 @@ function RootLayout({ children }) {
       }
     >
       <body>
-        <Header className="header" theme={theme} setTheme={setTheme} />
+        <Header theme={theme} setTheme={setTheme} className="header" />
         <main>{children}</main>
       </body>
     </html>
   );
 }
-
 export default RootLayout;

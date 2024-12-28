@@ -20,3 +20,10 @@ export const MotionImage = dynamic(
     ssr: false,
   }
 );
+
+export const MotionButton = dynamic(
+  () => import("framer-motion").then((mod) => mod.motion.button),
+  {
+    ssr: false,
+  }
+);
