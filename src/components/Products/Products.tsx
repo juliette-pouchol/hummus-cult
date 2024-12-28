@@ -36,8 +36,8 @@ export default function Products({ hasClicked }: { hasClicked: boolean }) {
         alignItems: isMobile ? "flex-start" : "center",
         display: "flex",
         flexDirection: "column",
-        paddingTop: 100,
-        minHeight: isMobile ? "500px" : "800px",
+        paddingTop: 10,
+        minHeight: isMobile ? "500px" : "600px",
         paddingBottom: hasClicked ? 10 : 0,
       }}
     >
