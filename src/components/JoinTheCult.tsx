@@ -1,9 +1,22 @@
 import { Link, Stack, Typography } from "@mui/material";
 import cult from "../../images/hummus-cult/cult.png";
-import hummus from "../../images/hummus-cult/hummus.jpeg";
+import { useState, useEffect } from "react";
 
 export default function JoinTheCult() {
-  const isMobile = window.innerWidth < 600;
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 600);
+    };
+
+    handleResize();
+
+    window.addEventListener("resize", handleResize);
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   return (
     <>
       <Stack
