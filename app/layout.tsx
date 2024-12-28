@@ -1,14 +1,13 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import { Work_Sans, Spline_Sans_Mono } from "next/font/google";
 import clsx from "clsx";
 
 import { LIGHT_TOKENS, DARK_TOKENS } from "../src/constants";
-
 import "./styles.css";
 import { useAtom } from "jotai";
-import { themeAtom } from "./atoms/atoms";
+import { themeAtom } from "../src/atoms/atoms";
 import Header from "../src/components/Header/Header";
 
 const mainFont = Work_Sans({

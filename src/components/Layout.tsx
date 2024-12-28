@@ -2,7 +2,7 @@ import { useAtom } from "jotai";
 import Header from "./Header/Header";
 
 import { Stack } from "@mui/material";
-import { themeAtom } from "../../app/atoms/atoms";
+import { themeAtom } from "../atoms/atoms";
 
 export default function Layout({ children }) {
   const [theme, setTheme] = useAtom(themeAtom);

@@ -1,4 +1,4 @@
-import HummusCultPage from "./hummus-cult/HummusCult";
+import HummusCultPage from "./hummus-cult/page";
 
 export default function App() {
   return <HummusCultPage />;
