@@ -86,7 +86,6 @@ export default function HaasSection() {
         <Typography
           fontFamily="var(--font-milau)"
           variant={isMobile ? "h4" : "h2"}
-          ref={topRef}
         >
           introducing: <span style={{ color: "#ECA74E" }}>HAAS</span>
         </Typography>
@@ -94,7 +93,6 @@ export default function HaasSection() {
         <Typography
           fontFamily="var(--font-milau)"
           variant={isMobile ? "body1" : "h5"}
-          ref={topRef}
         >
           (<span style={{ color: "#ECA74E" }}>H</span>ummus{" "}
           <span style={{ color: "#ECA74E" }}>A</span>s{" "}
@@ -121,7 +119,6 @@ export default function HaasSection() {
           </Typography>
           {!isMobile && <br />}
           <Typography
-            ref={bottomRef}
             fontFamily="var(--font-milau)"
             variant={isMobile ? "body2" : "body1"}
           >
@@ -144,7 +141,6 @@ export default function HaasSection() {
       </div>
       {!isMobile && (
         <MotionDiv
-          ref={bottomRef}
           style={{
             position: "absolute",
           }}
@@ -185,6 +181,7 @@ export default function HaasSection() {
           }}
         />
       )}
+      <div ref={bottomRef} />
     </Stack>
   );
 }

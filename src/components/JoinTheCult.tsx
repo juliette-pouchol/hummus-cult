@@ -47,7 +47,7 @@ export default function JoinTheCult() {
             You're either in... or you're out
           </Typography>
         </Stack>
-        {isMobile && <CultForm isMobile={isMobile} />}
+        <CultForm isMobile={isMobile} />
         <img
           src={cult.src}
           style={{
@@ -58,7 +58,13 @@ export default function JoinTheCult() {
             backgroundPosition: "center",
           }}
         />
-        {!isMobile && <CultForm isMobile={isMobile} />}
+        <Typography
+          fontFamily="var(--font-milau)"
+          style={{ fontSize: isMobile ? "10px" : "12px" }}
+        >
+          *Due to massive popularity and following we are currently
+          oversubscribed in every region that we operate.
+        </Typography>
       </Stack>
     </>
   );
@@ -79,13 +85,6 @@ function CultForm({ isMobile }: { isMobile: boolean }) {
           list-serve
         </Link>{" "}
         to receive emails about cult meet-ups and exclusive hummus sales
-      </Typography>
-      <Typography
-        fontFamily="var(--font-milau)"
-        style={{ fontSize: isMobile ? "8px" : "10px" }}
-      >
-        *Due to massive popularity and following we are currently oversubscribed
-        in every region that we operate.
       </Typography>
     </Stack>
   );
