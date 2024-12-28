@@ -5,16 +5,29 @@ import lemonBuddha from "../../../images/hummus-cult/lemon-buddha.png";
 import lemon from "../../../images/hummus-cult/lemon.png";
 import garlicJesus from "../../../images/hummus-cult/garlic-jesus.png";
 import garlic from "../../../images/hummus-cult/garlic.png";
+import { useState, useEffect } from "react";
 
 export default function Products({ hasClicked }: { hasClicked: boolean }) {
-  const isMobile = window.innerWidth < 600;
-  // Initial and final positions
-  const middleOfScreen = window.innerWidth / 2;
-  const jesusImageX = isMobile ? middleOfScreen / 2 - 120 : -150;
-  const jesusImageY = isMobile ? 250 : 280;
+  const [isMobile, setIsMobile] = useState(false);
+  const [positions, setPositions] = useState({
+    jesusImageX: 0,
+    jesusImageY: 0,
+    buddhaImageX: 0,
+    buddhaImageY: 0,
+  });
 
-  const buddhaImageX = isMobile ? middleOfScreen / 2 - 70 : 170;
-  const buddhaImageY = isMobile ? 230 : 100;
+  useEffect(() => {
+    const isMobileCheck = window.innerWidth < 600;
+    setIsMobile(isMobileCheck);
+
+    const middleOfScreen = window.innerWidth / 2;
+    setPositions({
+      jesusImageX: isMobileCheck ? middleOfScreen / 2 - 120 : -150,
+      jesusImageY: isMobileCheck ? 250 : 280,
+      buddhaImageX: isMobileCheck ? middleOfScreen / 2 - 70 : 170,
+      buddhaImageY: isMobileCheck ? 230 : 100,
+    });
+  }, []);
 
   return (
     <MotionDiv
@@ -79,12 +92,12 @@ export default function Products({ hasClicked }: { hasClicked: boolean }) {
             paddingBottom: isMobile ? 200 : 0,
           }}
           animate={{
-            x: hasClicked ? 0 : buddhaImageX,
-            y: hasClicked ? 0 : buddhaImageY,
+            x: hasClicked ? 0 : positions.buddhaImageX,
+            y: hasClicked ? 0 : positions.buddhaImageY,
           }}
           initial={{
-            x: buddhaImageX,
-            y: buddhaImageY,
+            x: positions.buddhaImageX,
+            y: positions.buddhaImageY,
           }}
           transition={{
             x: {
@@ -157,12 +170,12 @@ export default function Products({ hasClicked }: { hasClicked: boolean }) {
             position: hasClicked ? "relative" : "absolute",
           }}
           animate={{
-            x: hasClicked ? 0 : jesusImageX,
-            y: hasClicked ? 0 : jesusImageY,
+            x: hasClicked ? 0 : positions.jesusImageX,
+            y: hasClicked ? 0 : positions.jesusImageY,
           }}
           initial={{
-            x: jesusImageX,
-            y: jesusImageY,
+            x: positions.jesusImageX,
+            y: positions.jesusImageY,
           }}
           transition={{
             x: {

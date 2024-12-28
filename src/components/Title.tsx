@@ -1,8 +1,16 @@
 import { Typography } from "@mui/material";
 import { MotionDiv } from "./MotionComponents";
+import { useState, useEffect } from "react";
 
 export default function Title({ hasScrolled }: { hasScrolled: boolean }) {
-  const isMobile = window.innerWidth < 600;
+  const [isMobile, setIsMobile] = useState(false);
+  const [fontSize, setFontSize] = useState<"h1" | "h4">("h1");
+
+  useEffect(() => {
+    setIsMobile(window.innerWidth < 600);
+    setFontSize(window.innerWidth > 600 ? "h1" : "h4");
+  }, []);
+
   return (
     <MotionDiv
       layoutId="title"
@@ -22,11 +30,7 @@ export default function Title({ hasScrolled }: { hasScrolled: boolean }) {
         },
       }}
     >
-      <Typography
-        textAlign="center"
-        variant={window.innerWidth > 600 ? "h1" : "h4"}
-        fontFamily="Milau"
-      >
+      <Typography textAlign="center" variant={fontSize} fontFamily="Milau">
         Hummus Cult
       </Typography>
     </MotionDiv>

@@ -3,14 +3,18 @@ import { Box } from "@mui/material";
 import hummus from "../../images/hummus-cult/hummus.jpeg";
 import { MotionDiv } from "./MotionComponents";
 import { useInView } from "framer-motion";
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 
 export default function HaasSection() {
+  const [isMobile, setIsMobile] = useState(false);
   const bottomRef = useRef(null);
   const topRef = useRef(null);
   const bottomIsInView = useInView(bottomRef);
   const topIsInView = useInView(topRef);
-  const isMobile = window.innerWidth < 600;
+
+  useEffect(() => {
+    setIsMobile(window.innerWidth < 600);
+  }, []);
 
   return (
     <Stack
