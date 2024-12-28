@@ -44,7 +44,7 @@ export default function Products({ hasClicked }: { hasClicked: boolean }) {
       <MotionP
         style={{
           paddingTop: isMobile ? 20 : 0,
-          fontFamily: "Milau",
+          fontFamily: "var(--font-milau)",
           fontSize: isMobile ? "20px" : "40px",
           fontWeight: "bold",
           textDecoration: "underline",
@@ -152,7 +152,7 @@ export default function Products({ hasClicked }: { hasClicked: boolean }) {
               </Typography>
               <br />
               <Typography
-                fontFamily="Milau"
+                fontFamily="var(--font-milau)"
                 variant={isMobile ? "body1" : "h5"}
               >
                 Lemon and turmeric to enlighten the mind.
@@ -231,7 +231,7 @@ export default function Products({ hasClicked }: { hasClicked: boolean }) {
               </Typography>
               <br />
               <Typography
-                fontFamily="Milau"
+                fontFamily="var(--font-milau)"
                 variant={isMobile ? "body1" : "h5"}
               >
                 Garlic and habanero spice to open the heart.

@@ -9,26 +9,21 @@ import "./styles.css";
 import { useAtom } from "jotai";
 import { themeAtom } from "../src/atoms/atoms";
 import Header from "../src/components/Header/Header";
+import localFont from "next/font/local";
 
-const mainFont = Work_Sans({
-  subsets: ["latin"],
-  display: "fallback",
-  weight: "variable",
-  variable: "--font-family",
+const milau = localFont({
+  src: "../public/fonts/MilauDemo.otf",
+  variable: "--font-milau",
+  display: "swap",
 });
-const monoFont = Spline_Sans_Mono({
-  subsets: ["latin"],
-  display: "fallback",
-  weight: "variable",
-  variable: "--font-family-mono",
-});
+
 function RootLayout({ children }) {
   const [theme, setTheme] = useAtom(themeAtom);
 
   return (
     <html
       lang="en"
-      className={clsx(mainFont.variable, monoFont.variable)}
+      className={clsx(milau.variable)}
       data-color-theme={theme}
       style={
         theme === "light"

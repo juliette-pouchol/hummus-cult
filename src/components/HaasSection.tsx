@@ -84,7 +84,7 @@ export default function HaasSection() {
         }}
       >
         <Typography
-          fontFamily="Milau"
+          fontFamily="var(--font-milau)"
           variant={isMobile ? "h4" : "h2"}
           ref={topRef}
         >
@@ -92,7 +92,7 @@ export default function HaasSection() {
         </Typography>
         {!isMobile && <br />}
         <Typography
-          fontFamily="Milau"
+          fontFamily="var(--font-milau)"
           variant={isMobile ? "body1" : "h5"}
           ref={topRef}
         >
@@ -113,13 +113,16 @@ export default function HaasSection() {
         />
         <br />
         <Stack width={isMobile ? "80%" : "100%"}>
-          <Typography fontFamily="Milau" variant={isMobile ? "body2" : "body1"}>
+          <Typography
+            fontFamily="var(--font-milau)"
+            variant={isMobile ? "body2" : "body1"}
+          >
             The next big step forward in hummus innovation.
           </Typography>
           {!isMobile && <br />}
           <Typography
             ref={bottomRef}
-            fontFamily="Milau"
+            fontFamily="var(--font-milau)"
             variant={isMobile ? "body2" : "body1"}
           >
             Sign up and have fresh hummus delivered to your door.
@@ -131,7 +134,7 @@ export default function HaasSection() {
           style={{
             lineHeight: isMobile ? "1.6" : "1.2",
           }}
-          fontFamily="Milau"
+          fontFamily="var(--font-milau)"
           variant={isMobile ? "h3" : "h4"}
         >
           <span style={{ color: "#ECA74E" }}>Cheap.</span>{" "}

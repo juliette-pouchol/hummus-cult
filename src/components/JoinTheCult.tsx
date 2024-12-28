@@ -35,7 +35,7 @@ export default function JoinTheCult() {
             Join the Cult
           </Typography>
           <Typography
-            fontFamily="Milau"
+            fontFamily="var(--font-milau)"
             variant={isMobile ? "body1" : "h5"}
             style={{
               color: "#FF6633",
@@ -66,7 +66,7 @@ export default function JoinTheCult() {
             to receive emails about cult meet-ups and exclusive hummus sales
           </Typography>
           <Typography
-            fontFamily="Milau"
+            fontFamily="var(--font-milau)"
             style={{ fontSize: isMobile ? "8px" : "10px" }}
           >
             *Due to massive popularity and following we are currently

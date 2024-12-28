@@ -30,7 +30,11 @@ export default function Title({ hasScrolled }: { hasScrolled: boolean }) {
         },
       }}
     >
-      <Typography textAlign="center" variant={fontSize} fontFamily="Milau">
+      <Typography
+        textAlign="center"
+        variant={fontSize}
+        fontFamily="var(--font-milau)"
+      >
         Hummus Cult
       </Typography>
     </MotionDiv>
