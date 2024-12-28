@@ -32,13 +32,13 @@ export default function Products({ hasClicked }: { hasClicked: boolean }) {
   return (
     <MotionDiv
       style={{
-        justifyContent: "center",
-        alignItems: "center",
+        justifyContent: isMobile ? "flex-start" : "center",
+        alignItems: isMobile ? "flex-start" : "center",
         display: "flex",
         flexDirection: "column",
-        paddingTop: hasClicked ? 25 : 0,
-        minHeight: isMobile ? "200px" : "500px",
-        marginBottom: isMobile ? 100 : 0,
+        paddingTop: 100,
+        minHeight: isMobile ? "500px" : "800px",
+        paddingBottom: hasClicked ? 10 : 0,
       }}
     >
       <MotionP

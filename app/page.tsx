@@ -32,7 +32,7 @@ const App = () => {
       <Stack
         width="100%"
         height="100%"
-        paddingTop={hasScrolled ? 2 : 10}
+        paddingTop={hasScrolled ? 2 : 0}
         alignItems="center"
         gap={isMobile ? 5 : 30}
       >
