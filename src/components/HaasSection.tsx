@@ -141,7 +141,6 @@ export default function HaasSection() {
           <span style={{ color: "#FF6633" }}>Nutritious.</span>{" "}
           <span style={{ color: "#ECA74E" }}>Culty.</span>
         </Typography>
-        <br />
       </div>
       {!isMobile && (
         <MotionDiv

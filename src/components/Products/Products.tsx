@@ -38,12 +38,11 @@ export default function Products({ hasClicked }: { hasClicked: boolean }) {
         flexDirection: "column",
         paddingTop: hasClicked ? 25 : 0,
         minHeight: isMobile ? "200px" : "500px",
-        marginBottom: isMobile ? 320 : 0,
+        marginBottom: isMobile ? 100 : 0,
       }}
     >
       <MotionP
         style={{
-          paddingTop: isMobile ? 20 : 0,
           fontFamily: "var(--font-milau)",
           fontSize: isMobile ? "20px" : "40px",
           fontWeight: "bold",
@@ -78,7 +77,7 @@ export default function Products({ hasClicked }: { hasClicked: boolean }) {
         direction={isMobile ? "column" : "row"}
         justifyContent="center"
         alignItems="center"
-        spacing={10}
+        spacing={isMobile ? 2 : 10}
         width="100%"
         display="flex"
         position="relative"
@@ -89,7 +88,7 @@ export default function Products({ hasClicked }: { hasClicked: boolean }) {
           layoutId="buddha"
           style={{
             position: hasClicked ? "relative" : "absolute",
-            paddingBottom: isMobile ? 200 : 0,
+            paddingBottom: isMobile ? 100 : 0,
           }}
           animate={{
             x: hasClicked ? 0 : positions.buddhaImageX,
@@ -118,7 +117,7 @@ export default function Products({ hasClicked }: { hasClicked: boolean }) {
           className={styles.cultImage}
         >
           <Stack
-            gap={2}
+            gap={isMobile ? 1 : 2}
             justifyContent="center"
             alignItems="center"
             textAlign="center"
@@ -145,19 +144,27 @@ export default function Products({ hasClicked }: { hasClicked: boolean }) {
                 backgroundPosition: "center",
                 padding: "20px",
                 borderRadius: "8px",
+                height: isMobile ? "150px" : undefined,
+                justifyContent: "center",
+                display: "flex",
+                flexDirection: "column",
               }}
             >
-              <Typography fontFamily="Milau" variant={isMobile ? "h5" : "h4"}>
-                Lemon Buddha
-              </Typography>
-              <br />
               <Typography
                 fontFamily="var(--font-milau)"
-                variant={isMobile ? "body1" : "h5"}
+                variant={isMobile ? "h5" : "h4"}
+              >
+                Lemon Buddha
+              </Typography>
+              {!isMobile && <br />}
+              <Typography
+                fontFamily="var(--font-milau)"
+                variant={isMobile ? "body2" : "h5"}
+                fontSize={isMobile ? "10px" : undefined}
               >
                 Lemon and turmeric to enlighten the mind.
-                <br />
-                <br />
+                {<br />}
+                {!isMobile && <br />}
                 Ingredients: garbanzo beans, olive oil, lemon...
               </Typography>
             </MotionDiv>
@@ -196,11 +203,11 @@ export default function Products({ hasClicked }: { hasClicked: boolean }) {
           className={styles.cultImage}
         >
           <Stack
-            gap={2}
+            gap={isMobile ? 1 : 2}
             justifyContent="center"
             alignItems="center"
             textAlign="center"
-            height="100px"
+            height={isMobile ? "150px" : undefined}
           >
             <MotionImage
               layout="position"
@@ -226,17 +233,21 @@ export default function Products({ hasClicked }: { hasClicked: boolean }) {
                 borderRadius: "8px",
               }}
             >
-              <Typography fontFamily="Milau" variant={isMobile ? "h5" : "h4"}>
-                Garlic Jesus
-              </Typography>
-              <br />
               <Typography
                 fontFamily="var(--font-milau)"
-                variant={isMobile ? "body1" : "h5"}
+                variant={isMobile ? "h5" : "h4"}
+              >
+                Garlic Jesus
+              </Typography>
+              {!isMobile && <br />}
+              <Typography
+                fontFamily="var(--font-milau)"
+                variant={isMobile ? "body2" : "h5"}
+                fontSize={isMobile ? "10px" : undefined}
               >
                 Garlic and habanero spice to open the heart.
-                <br />
-                <br />
+                {<br />}
+                {!isMobile && <br />}
                 Ingredients: garbanzo beans, olive oil, garlic...
               </Typography>
             </MotionDiv>

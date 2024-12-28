@@ -31,7 +31,10 @@ export default function JoinTheCult() {
         }}
       >
         <Stack>
-          <Typography fontFamily="Milau" variant={isMobile ? "h3" : "h1"}>
+          <Typography
+            fontFamily="var(--font-milau)"
+            variant={isMobile ? "h3" : "h1"}
+          >
             Join the Cult
           </Typography>
           <Typography
@@ -44,6 +47,7 @@ export default function JoinTheCult() {
             You're either in... or you're out
           </Typography>
         </Stack>
+        {isMobile && <CultForm isMobile={isMobile} />}
         <img
           src={cult.src}
           style={{
@@ -54,26 +58,35 @@ export default function JoinTheCult() {
             backgroundPosition: "center",
           }}
         />
-        <Stack gap={2}>
-          <Typography fontFamily="Milau" variant={isMobile ? "body1" : "h5"}>
-            Join the{" "}
-            <Link
-              style={{ color: "#ABF1D0" }}
-              href="https://tinyletter.com/hummus-cult"
-            >
-              list-serve
-            </Link>{" "}
-            to receive emails about cult meet-ups and exclusive hummus sales
-          </Typography>
-          <Typography
-            fontFamily="var(--font-milau)"
-            style={{ fontSize: isMobile ? "8px" : "10px" }}
-          >
-            *Due to massive popularity and following we are currently
-            oversubscribed in every region that we operate.
-          </Typography>
-        </Stack>
+        {!isMobile && <CultForm isMobile={isMobile} />}
       </Stack>
     </>
+  );
+}
+
+function CultForm({ isMobile }: { isMobile: boolean }) {
+  return (
+    <Stack gap={2}>
+      <Typography
+        fontFamily="var(--font-milau)"
+        variant={isMobile ? "body1" : "h5"}
+      >
+        Join the{" "}
+        <Link
+          style={{ color: "#ABF1D0" }}
+          href="https://tinyletter.com/hummus-cult"
+        >
+          list-serve
+        </Link>{" "}
+        to receive emails about cult meet-ups and exclusive hummus sales
+      </Typography>
+      <Typography
+        fontFamily="var(--font-milau)"
+        style={{ fontSize: isMobile ? "8px" : "10px" }}
+      >
+        *Due to massive popularity and following we are currently oversubscribed
+        in every region that we operate.
+      </Typography>
+    </Stack>
   );
 }
