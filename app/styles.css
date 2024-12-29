@@ -45,7 +45,7 @@ h6 {
 
 /* THEME VARIABLES */
 html {
-  --font-milau: 'var(--font-milau)', system-ui, sans-serif;
+  --font-milau: 'Milau', system-ui, sans-serif;
   --content-width: 55rem;
   --outer-content-width: 80rem;
   --viewport-padding: 16px;
@@ -201,7 +201,6 @@ button {
 @font-face {
   font-family: 'Milau';
   src: url('/fonts/Milau-Regular.woff2') format('woff2');
-  /* Add other font formats if needed */
   font-display: swap;
 }
 
