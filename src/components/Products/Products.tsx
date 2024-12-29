@@ -153,7 +153,7 @@ function Product({
         >
           <Typography
             fontFamily="var(--font-milau)"
-            variant={isMobile ? "h5" : "h4"}
+            variant={isMobile ? "h5" : "body1"}
           >
             {title}
           </Typography>
