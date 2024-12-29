@@ -13,11 +13,12 @@
 html {
   scrollbar-gutter: stable;
   font-size: 62.5%; /* Makes 1rem = 10px */
-  font-family: var(--font-milau);
+  font-family: var(--font-milau) !important;
 }
 body {
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
+  font-family: var(--font-milau) !important;
 }
 img,
 picture,
@@ -118,33 +119,33 @@ code {
 }
 h1,
 .MuiTypography-h1 {
-  font-size: 5rem;
-  font-weight: 400;
-  font-family: var(--font-milau);
+  font-size: 5rem !important;
+  font-weight: 400 !important;
+  font-family: var(--font-milau) !important;
 }
 h2,
 .MuiTypography-h2 {
-  font-size: 3rem;
-  margin-top: 0.5em;
-  font-weight: 200;
-  font-family: var(--font-milau);
+  font-size: 3rem !important;
+  margin-top: 0.5em !important;
+  font-weight: 200 !important;
+  font-family: var(--font-milau) !important;
 }
 h3,
 .MuiTypography-h3 {
-  font-family: var(--font-milau);
-  font-size: 2rem;
-  margin-top: 1em;
-  margin-bottom: 0.5em;
-  font-weight: 500;
+  font-family: var(--font-milau) !important;
+  font-size: 2rem !important;
+  margin-top: 1em !important;
+  margin-bottom: 0.5em !important;
+  font-weight: 500 !important;
 }
 p,
 .MuiTypography-body1 {
-  font-family: var(--font-milau);
-  font-size: 1.25rem;
+  font-family: var(--font-milau) !important;
+  font-size: 1.25rem !important;
 }
 .MuiTypography-body2 {
-  font-family: var(--font-milau);
-  font-size: 1rem;
+  font-family: var(--font-milau) !important;
+  font-size: 1rem !important;
  
 }
 p code {
@@ -173,23 +174,23 @@ button {
 @media (min-width: 35rem) {
   h1,
   .MuiTypography-h1 {
-    font-size: 10rem;
+    font-size: 10rem !important;
   }
 
   h2,
   .MuiTypography-h2 {
-    font-size: 8rem;
+    font-size: 8rem !important;
   }
   h3,
   .MuiTypography-h3 {
-    font-size: 6rem;
+    font-size: 6rem !important;
   }
   .MuiTypography-body1 {
-  font-size: 4rem;
-}
-.MuiTypography-body2 {
-  font-size: 3rem;
-}
+    font-size: 4rem !important;
+  }
+  .MuiTypography-body2 {
+    font-size: 3rem !important;
+  }
 }
 .header {
   position: relative;
