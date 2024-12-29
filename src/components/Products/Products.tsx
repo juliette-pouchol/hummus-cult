@@ -7,6 +7,12 @@ import garlicJesus from "../../../images/hummus-cult/garlic-jesus.png";
 import garlic from "../../../images/hummus-cult/garlic.png";
 import { useState, useEffect } from "react";
 
+const TWEEN = {
+  type: "tween",
+  duration: 1,
+  ease: "easeInOut",
+};
+
 export default function Products({ hasClicked }: { hasClicked: boolean }) {
   const [isMobile, setIsMobile] = useState(false);
   const [positions, setPositions] = useState({
@@ -15,7 +21,6 @@ export default function Products({ hasClicked }: { hasClicked: boolean }) {
     buddhaImageX: 0,
     buddhaImageY: 0,
   });
-
   useEffect(() => {
     const isMobileCheck = window.innerWidth < 600;
     setIsMobile(isMobileCheck);
@@ -23,21 +28,16 @@ export default function Products({ hasClicked }: { hasClicked: boolean }) {
     const middleOfScreen = window.innerWidth / 2;
     setPositions({
       jesusImageX: isMobileCheck ? middleOfScreen / 2 - 120 : -150,
-      jesusImageY: isMobileCheck ? 250 : 280,
-      buddhaImageX: isMobileCheck ? middleOfScreen / 2 - 70 : 170,
-      buddhaImageY: isMobileCheck ? 230 : 100,
+      jesusImageY: isMobileCheck ? 380 : 280,
+      buddhaImageX: isMobileCheck ? middleOfScreen / 2 - 40 : 170,
+      buddhaImageY: isMobileCheck ? 250 : 100,
     });
   }, []);
 
   return (
     <MotionDiv
-      style={{
-        justifyContent: isMobile ? "flex-start" : "center",
-        alignItems: isMobile ? "flex-start" : "center",
-        display: "flex",
-        flexDirection: "column",
-        paddingTop: 10,
-        minHeight: isMobile ? "500px" : "600px",
+      className={styles.productsContainer}
+      animate={{
         paddingBottom: hasClicked ? 10 : 0,
       }}
     >
@@ -64,194 +64,114 @@ export default function Products({ hasClicked }: { hasClicked: boolean }) {
           marginBottom: 0,
         }}
         layout={"position"}
-        transition={{
-          duration: 0.6,
-          type: "tween",
-          ease: "easeOut",
-        }}
+        transition={TWEEN}
       >
         Two dank flavours
       </MotionP>
-      <Stack
-        id="our-flavours"
-        direction={isMobile ? "column" : "row"}
-        justifyContent="center"
-        alignItems="center"
-        spacing={isMobile ? 2 : 10}
-        width="100%"
-        display="flex"
-        position="relative"
-      >
-        {" "}
-        <MotionDiv
-          layout={true}
+      <Stack className={styles.productsStack}>
+        <Product
           layoutId="buddha"
-          style={{
-            position: hasClicked ? "relative" : "absolute",
-            paddingBottom: isMobile ? 100 : 0,
-          }}
-          animate={{
-            x: hasClicked ? 0 : positions.buddhaImageX,
-            y: hasClicked ? 0 : positions.buddhaImageY,
-          }}
-          initial={{
-            x: positions.buddhaImageX,
-            y: positions.buddhaImageY,
-          }}
-          transition={{
-            x: {
-              type: "tween",
-              duration: 1,
-              ease: "easeInOut",
-            },
-            y: {
-              type: "tween",
-              duration: 1,
-              ease: "easeInOut",
-            },
-            layout: {
-              duration: 1,
-              ease: "easeInOut",
-            },
-          }}
-          className={styles.cultImage}
-        >
-          <Stack
-            gap={isMobile ? 1 : 2}
-            justifyContent="center"
-            alignItems="center"
-            textAlign="center"
-          >
-            <MotionImage
-              layout="position"
-              className={styles.cultImage}
-              src={lemonBuddha.src}
-            />
-            <MotionDiv
-              animate={{
-                opacity: hasClicked ? 1 : 0,
-              }}
-              initial={{ opacity: 0 }}
-              transition={{
-                duration: 1,
-                type: "tween",
-                ease: "easeInOut",
-              }}
-              style={{
-                backgroundImage: `url(${lemon.src})`,
-                backgroundSize: "contain",
-                backgroundRepeat: "no-repeat",
-                backgroundPosition: "center",
-                padding: "20px",
-                borderRadius: "8px",
-                height: isMobile ? "150px" : undefined,
-                justifyContent: "center",
-                display: "flex",
-                flexDirection: "column",
-              }}
-            >
-              <Typography
-                fontFamily="var(--font-milau)"
-                variant={isMobile ? "h5" : "h4"}
-              >
-                Lemon Buddha
-              </Typography>
-              {!isMobile && <br />}
-              <Typography
-                fontFamily="var(--font-milau)"
-                variant={isMobile ? "body2" : "h5"}
-                fontSize={isMobile ? "10px" : undefined}
-              >
-                Lemon and turmeric to enlighten the mind.
-                {<br />}
-                {!isMobile && <br />}
-                Ingredients: garbanzo beans, olive oil, lemon...
-              </Typography>
-            </MotionDiv>
-          </Stack>
-        </MotionDiv>
-        <MotionDiv
-          layout={true}
+          image={lemonBuddha.src}
+          backgroundImage={lemon.src}
+          title="Lemon Buddha"
+          description="Lemon and turmeric to enlighten the mind."
+          ingredients="garbanzo beans, olive oil, lemon..."
+          hasClicked={hasClicked}
+          isMobile={isMobile}
+          positions={{ x: positions.buddhaImageX, y: positions.buddhaImageY }}
+        />
+        <Product
           layoutId="jesus"
-          style={{
-            position: hasClicked ? "relative" : "absolute",
-          }}
-          animate={{
-            x: hasClicked ? 0 : positions.jesusImageX,
-            y: hasClicked ? 0 : positions.jesusImageY,
-          }}
-          initial={{
-            x: positions.jesusImageX,
-            y: positions.jesusImageY,
-          }}
-          transition={{
-            x: {
-              type: "tween",
-              duration: 1,
-              ease: "easeInOut",
-            },
-            y: {
-              type: "tween",
-              duration: 1,
-              ease: "easeInOut",
-            },
-            layout: {
-              duration: 1,
-              ease: "easeInOut",
-            },
-          }}
+          image={garlicJesus.src}
+          backgroundImage={garlic.src}
+          title="Garlic Jesus"
+          description="Garlic and habanero spice to open the heart."
+          ingredients="garbanzo beans, olive oil, garlic..."
+          hasClicked={hasClicked}
+          isMobile={isMobile}
+          positions={{ x: positions.jesusImageX, y: positions.jesusImageY }}
+        />
+      </Stack>
+    </MotionDiv>
+  );
+}
+
+function Product({
+  image,
+  backgroundImage,
+  title,
+  description,
+  ingredients,
+  hasClicked,
+  isMobile,
+  positions,
+  layoutId,
+}: {
+  layoutId: string;
+  image: string;
+  backgroundImage: string;
+  title: string;
+  description: string;
+  ingredients: string;
+  hasClicked: boolean;
+  isMobile: boolean;
+  positions: {
+    x: number;
+    y: number;
+  };
+}) {
+  return (
+    <MotionDiv
+      className={styles.cultImage}
+      layout={true}
+      layoutId={layoutId}
+      style={{
+        position: hasClicked ? "relative" : "absolute",
+      }}
+      animate={{
+        x: hasClicked ? 0 : positions.x,
+        y: hasClicked ? 0 : positions.y,
+      }}
+      initial={{
+        x: positions.x,
+        y: positions.y,
+      }}
+      transition={TWEEN}
+    >
+      <Stack className={styles.cultImageStack}>
+        <MotionImage
+          layout="position"
           className={styles.cultImage}
+          src={image}
+        />
+        <MotionDiv
+          className={styles.productDescriptionContainer}
+          animate={{
+            opacity: hasClicked ? 1 : 0,
+          }}
+          initial={{ opacity: 0 }}
+          transition={TWEEN}
+          style={{
+            backgroundImage: `url(${backgroundImage})`,
+          }}
         >
-          <Stack
-            gap={isMobile ? 1 : 2}
-            justifyContent="center"
-            alignItems="center"
-            textAlign="center"
-            height={isMobile ? "150px" : undefined}
+          <Typography
+            fontFamily="var(--font-milau)"
+            variant={isMobile ? "h5" : "h4"}
           >
-            <MotionImage
-              layout="position"
-              className={styles.cultImage}
-              src={garlicJesus.src}
-            />
-            <MotionDiv
-              initial={{ opacity: 0 }}
-              animate={{
-                opacity: hasClicked ? 1 : 0,
-              }}
-              transition={{
-                duration: 1,
-                type: "tween",
-                ease: "easeInOut",
-              }}
-              style={{
-                backgroundImage: `url(${garlic.src})`,
-                backgroundSize: "contain",
-                backgroundRepeat: "no-repeat",
-                backgroundPosition: "center",
-                padding: "20px",
-                borderRadius: "8px",
-              }}
-            >
-              <Typography
-                fontFamily="var(--font-milau)"
-                variant={isMobile ? "h5" : "h4"}
-              >
-                Garlic Jesus
-              </Typography>
-              {!isMobile && <br />}
-              <Typography
-                fontFamily="var(--font-milau)"
-                variant={isMobile ? "body2" : "h5"}
-                fontSize={isMobile ? "10px" : undefined}
-              >
-                Garlic and habanero spice to open the heart.
-                {<br />}
-                {!isMobile && <br />}
-                Ingredients: garbanzo beans, olive oil, garlic...
-              </Typography>
-            </MotionDiv>
-          </Stack>
+            {title}
+          </Typography>
+          {!isMobile && <br />}
+          <Typography
+            fontFamily="var(--font-milau)"
+            variant={isMobile ? "body2" : "h5"}
+            fontSize={isMobile ? "10px" : undefined}
+          >
+            {description}
+            {<br />}
+            {!isMobile && <br />}
+            Ingredients: {ingredients}
+          </Typography>
         </MotionDiv>
       </Stack>
     </MotionDiv>

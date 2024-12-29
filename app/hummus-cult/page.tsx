@@ -2,12 +2,12 @@
 
 import { Stack } from "@mui/material";
 import React, { useState } from "react";
-import Products from "../src/components/Products/Products";
-import HaasSection from "../src/components/HaasSection";
-import Title from "../src/Title/Title";
-import JoinTheCult from "../src/components/JoinTheCult/JoinTheCult";
+import JoinTheCult from "../../src/components/JoinTheCult/JoinTheCult";
+import Products from "../../src/components/Products/Products";
+import HaasSection from "../../src/components/HaasSection";
+import Title from "../../src/Title/Title";
 
-const App = () => {
+const HummusCultPage = () => {
   const [hasScrolled, setHasScrolled] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
 
@@ -32,7 +32,7 @@ const App = () => {
       <Stack
         width="100%"
         height="100%"
-        paddingTop={hasScrolled ? 2 : 0}
+        paddingTop={hasScrolled ? 2 : 10}
         alignItems="center"
         gap={isMobile ? 5 : 30}
       >
@@ -44,4 +44,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default HummusCultPage;

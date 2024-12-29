@@ -19,10 +19,12 @@ export default function HaasSection() {
   return (
     <Stack
       width={isMobile ? "80%" : "45%"}
-      height="700px"
+      height={isMobile ? "400px" : "600px"}
       justifyContent="center"
       alignItems="center"
       textAlign="center"
+      paddingTop={isMobile ? "7rem" : "30rem"}
+      paddingBottom={isMobile ? "4rem" : undefined}
       gap={10}
       position="relative"
       ref={topRef}
@@ -48,7 +50,7 @@ export default function HaasSection() {
               ? "#ECA74E transparent transparent #ECA74E "
               : "transparent transparent transparent transparent",
             borderRadius: topIsInView ? "50%" : "0%",
-            transform: topIsInView ? "rotate(40deg)" : "rotate(0deg)",
+            transform: topIsInView ? "rotate(10deg)" : "rotate(0deg)",
             transformOrigin: topIsInView ? "center" : "center",
             rotate: topIsInView ? "-45deg" : "0deg",
             opacity: topIsInView ? 1 : 0,
@@ -74,70 +76,47 @@ export default function HaasSection() {
       <div
         style={{
           backgroundColor: "white",
-          padding: "20px",
           borderRadius: "10px",
           width: "120%",
-          zIndex: 1,
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
         }}
       >
-        <Typography
-          fontFamily="var(--font-milau)"
-          variant={isMobile ? "h4" : "h2"}
-        >
-          introducing: <span style={{ color: "#ECA74E" }}>HAAS</span>
+        <Typography fontFamily="var(--font-milau)" variant="h2">
+          Introducing: <span style={{ color: "#ECA74E" }}>HAAS</span>
         </Typography>
-        {!isMobile && <br />}
-        <Typography
-          fontFamily="var(--font-milau)"
-          variant={isMobile ? "body1" : "h5"}
-        >
+        <Typography fontFamily="var(--font-milau)" variant="body1">
           (<span style={{ color: "#ECA74E" }}>H</span>ummus{" "}
           <span style={{ color: "#ECA74E" }}>A</span>s{" "}
           <span style={{ color: "#ECA74E" }}>A</span>s{" "}
           <span style={{ color: "#ECA74E" }}>S</span>ervice)
         </Typography>
         <br />
+        <Stack width={isMobile ? "80%" : "100%"}>
+          <Typography variant={"body2"}>
+            The next big step forward in hummus innovation.
+          </Typography>
+          <Typography variant={"body2"}>
+            Sign up and have fresh hummus delivered to your door.
+          </Typography>
+          <Typography style={{}} variant={isMobile ? "h2" : "h3"}>
+            <span style={{ color: "#ECA74E" }}>Cheap.</span>{" "}
+            {isMobile && <br />}
+            <span style={{ color: "#FF6633" }}>Nutritious.</span>{" "}
+            {isMobile && <br />}
+            <span style={{ color: "#ECA74E" }}>Culty.</span>
+          </Typography>
+        </Stack>
         <img
           src={hummus.src}
           style={{
-            width: "200px",
+            width: isMobile ? "20rem" : "40rem",
             objectFit: "cover",
             display: "block",
             margin: "0 auto",
           }}
         />
-        <br />
-        <Stack width={isMobile ? "80%" : "100%"}>
-          <Typography
-            fontFamily="var(--font-milau)"
-            variant={isMobile ? "body2" : "body1"}
-          >
-            The next big step forward in hummus innovation.
-          </Typography>
-          {!isMobile && <br />}
-          <Typography
-            fontFamily="var(--font-milau)"
-            variant={isMobile ? "body2" : "body1"}
-          >
-            Sign up and have fresh hummus delivered to your door.
-          </Typography>
-        </Stack>
-        <br />
-        <br />
-        <Typography
-          style={{
-            lineHeight: isMobile ? "1.6" : "1.2",
-          }}
-          fontFamily="var(--font-milau)"
-          variant={isMobile ? "h3" : "h4"}
-        >
-          <span style={{ color: "#ECA74E" }}>Cheap.</span>{" "}
-          <span style={{ color: "#FF6633" }}>Nutritious.</span>{" "}
-          <span style={{ color: "#ECA74E" }}>Culty.</span>
-        </Typography>
       </div>
       {!isMobile && (
         <MotionDiv
@@ -145,13 +124,13 @@ export default function HaasSection() {
             position: "absolute",
           }}
           animate={{
-            top: bottomIsInView ? "20%" : "0%",
-            left: bottomIsInView ? "30%" : "0%",
+            top: bottomIsInView ? "30%" : "0%",
+            left: bottomIsInView ? "40%" : "0%",
             width: bottomIsInView ? "100%" : "0%",
             height: bottomIsInView ? "80%" : "0%",
             border: bottomIsInView ? "5px solid #ECA74E" : "0px solid #ECA74E",
             borderColor: bottomIsInView
-              ? "transparent #FF6633 #FF6633 transparent"
+              ? "transparent #FF6633 transparent transparent"
               : "transparent transparent transparent transparent",
             borderRadius: bottomIsInView ? "50%" : "0%",
             transform: bottomIsInView ? "rotate(40deg)" : "rotate(0deg)",
@@ -173,7 +152,7 @@ export default function HaasSection() {
             width: "0%",
             height: "0%",
             border: "5px solid #ECA74E",
-            borderColor: "#ECA74E transparent transparent #ECA74E ",
+            borderColor: "transparent transparent transparent transparent ",
             borderRadius: "50%",
             transform: "rotate(40deg)",
             transformOrigin: "center",

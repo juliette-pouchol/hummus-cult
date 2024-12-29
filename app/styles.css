@@ -12,6 +12,8 @@
 }
 html {
   scrollbar-gutter: stable;
+  font-size: 62.5%; /* Makes 1rem = 10px */
+  font-family: var(--font-milau);
 }
 body {
   line-height: 1.5;
@@ -43,6 +45,7 @@ h6 {
 
 /* THEME VARIABLES */
 html {
+  --font-milau: 'Milau', system-ui, sans-serif;
   --content-width: 55rem;
   --outer-content-width: 80rem;
   --viewport-padding: 16px;
@@ -80,7 +83,7 @@ html {
 
 html {
   color: var(--color-text);
-  font-family: var(--font-family), sans-serif;
+  font-family: var(--font-milau);
   letter-spacing: -0.03125em;
 }
 
@@ -112,27 +115,38 @@ em {
   font-style: italic;
 }
 code {
-  font-family: var(--font-family-mono);
+  font-family: var(--font-milau);
 }
-h1 {
-  font-size: 1.75rem;
-  font-weight: 650;
+h1,
+.MuiTypography-h1 {
+  font-size: 5rem;
+  font-weight: 400;
+  font-family: var(--font-milau);
 }
-h2 {
-  font-size: 1.5rem;
-  margin-top: 2em;
-  margin-bottom: 0.5em;
-  font-weight: 600;
+h2,
+.MuiTypography-h2 {
+  font-size: 3rem;
+  margin-top: 0.5em;
+  font-weight: 200;
+  font-family: var(--font-milau);
 }
-h3 {
-  font-size: 1.25rem;
-  margin-top: 2em;
+h3,
+.MuiTypography-h3 {
+  font-family: var(--font-milau);
+  font-size: 2rem;
+  margin-top: 1em;
   margin-bottom: 0.5em;
   font-weight: 500;
 }
-p {
+p,
+.MuiTypography-body1 {
+  font-family: var(--font-milau);
   font-size: 1.25rem;
-  margin-bottom: 1.5em;
+}
+.MuiTypography-body2 {
+  font-family: var(--font-milau);
+  font-size: 1rem;
+ 
 }
 p code {
   display: inline-block;
@@ -158,19 +172,51 @@ button {
 }
 
 @media (min-width: 35rem) {
-  h1 {
-    font-size: 2.25rem;
+  h1,
+  .MuiTypography-h1 {
+    font-size: 10rem;
   }
 
-  h2 {
-    font-size: 1.75rem;
+  h2,
+  .MuiTypography-h2 {
+    font-size: 8rem;
   }
-  h3 {
-    font-size: 1.5rem;
+  h3,
+  .MuiTypography-h3 {
+    font-size: 6rem;
   }
+  .MuiTypography-body1 {
+  font-size: 4rem;
+}
+.MuiTypography-body2 {
+  font-size: 3rem;
+}
 }
 .header {
   position: relative;
   z-index: 1;
   margin: 1rem;
+}
+
+@font-face {
+  font-family: 'Milau';
+  src: url('/path/to/milau-font.woff2') format('woff2');
+  /* Add other font formats if needed */
+  font-display: swap;
+}
+
+.stack {
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+@media (max-width: 600px) {
+  .stack {
+    gap: 10px;
+  }
 }

@@ -1,7 +1,7 @@
 import { Link, Stack, Typography } from "@mui/material";
-import cult from "../../images/hummus-cult/cult.png";
+import cult from "../../../images/hummus-cult/cult.png";
 import { useState, useEffect } from "react";
-
+import styles from "./JoinTheCult.module.css";
 export default function JoinTheCult() {
   const [isMobile, setIsMobile] = useState(false);
 
@@ -19,27 +19,11 @@ export default function JoinTheCult() {
 
   return (
     <>
-      <Stack
-        width={isMobile ? "80%" : "45%"}
-        height="100%"
-        justifyItems="center"
-        alignItems="center"
-        textAlign="center"
-        gap={8}
-        style={{
-          paddingBottom: "100px",
-        }}
-      >
-        <Stack>
+      <Stack className={styles.container} gap={isMobile ? 3 : 10}>
+        <Stack gap={1}>
+          <Typography variant="h2">Join the Cult</Typography>
           <Typography
-            fontFamily="var(--font-milau)"
-            variant={isMobile ? "h3" : "h1"}
-          >
-            Join the Cult
-          </Typography>
-          <Typography
-            fontFamily="var(--font-milau)"
-            variant={isMobile ? "body1" : "h5"}
+            variant="body2"
             style={{
               color: "#FF6633",
             }}
@@ -47,7 +31,7 @@ export default function JoinTheCult() {
             You're either in... or you're out
           </Typography>
         </Stack>
-        <CultForm isMobile={isMobile} />
+        <CultForm />
         <img
           src={cult.src}
           style={{
@@ -58,10 +42,8 @@ export default function JoinTheCult() {
             backgroundPosition: "center",
           }}
         />
-        <Typography
-          fontFamily="var(--font-milau)"
-          style={{ fontSize: isMobile ? "10px" : "12px" }}
-        >
+        {isMobile && <br />}
+        <Typography style={{ fontSize: isMobile ? "10px" : "12px" }}>
           *Due to massive popularity and following we are currently
           oversubscribed in every region that we operate.
         </Typography>
@@ -70,14 +52,11 @@ export default function JoinTheCult() {
   );
 }
 
-function CultForm({ isMobile }: { isMobile: boolean }) {
+function CultForm() {
   return (
     <Stack gap={2}>
-      <Typography
-        fontFamily="var(--font-milau)"
-        variant={isMobile ? "body1" : "h5"}
-      >
-        Join the{" "}
+      <Typography variant={"body2"}>
+        Sign up for the{" "}
         <Link
           style={{ color: "#ABF1D0" }}
           href="https://tinyletter.com/hummus-cult"

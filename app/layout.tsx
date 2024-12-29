@@ -25,11 +25,12 @@ function RootLayout({ children }) {
       lang="en"
       className={clsx(milau.variable)}
       data-color-theme={theme}
-      style={
-        theme === "light"
-          ? (LIGHT_TOKENS as React.CSSProperties)
-          : (DARK_TOKENS as React.CSSProperties)
-      }
+      style={{
+        fontFamily: "var(--font-milau)",
+        ...((theme === "light"
+          ? LIGHT_TOKENS
+          : DARK_TOKENS) as React.CSSProperties),
+      }}
     >
       <body>
         <Header theme={theme} setTheme={setTheme} className="header" />
