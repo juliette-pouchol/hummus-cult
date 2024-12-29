@@ -14,9 +14,9 @@ export default function Title({ hasScrolled }: { hasScrolled: boolean }) {
       }}
       initial={{ opacity: 1, width: "100%" }}
       transition={{
-        duration: 1,
+        duration: 0.5,
         layout: {
-          duration: 1,
+          duration: 0.5,
           ease: "easeInOut",
         },
       }}

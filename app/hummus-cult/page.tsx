@@ -36,8 +36,8 @@ const HummusCultPage = () => {
         alignItems="center"
         gap={isMobile ? 5 : 30}
       >
-        <Products hasClicked={hasScrolled} />
         <HaasSection />
+        <Products hasClicked={hasScrolled} />
         <JoinTheCult />
       </Stack>
     </>

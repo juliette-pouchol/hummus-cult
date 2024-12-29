@@ -6,6 +6,7 @@ import Products from "../src/components/Products/Products";
 import HaasSection from "../src/components/HaasSection";
 import Title from "../src/Title/Title";
 import JoinTheCult from "../src/components/JoinTheCult/JoinTheCult";
+import MovingPictures from "../src/components/Products/MovingPictures";
 
 const App = () => {
   const [hasScrolled, setHasScrolled] = useState(false);
@@ -34,10 +35,11 @@ const App = () => {
         height="100%"
         paddingTop={hasScrolled ? 2 : 0}
         alignItems="center"
-        gap={isMobile ? 5 : 30}
+        gap={isMobile ? 5 : 10}
       >
-        <Products hasClicked={hasScrolled} />
+        <MovingPictures hasClicked={hasScrolled} />
         <HaasSection />
+        <Products hasClicked={hasScrolled} />
         <JoinTheCult />
       </Stack>
     </>
