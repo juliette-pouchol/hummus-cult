@@ -200,8 +200,8 @@ button {
 
 @font-face {
   font-family: 'Milau';
-  src: url('/fonts/Milau-Regular.woff2') format('woff2');
-  font-display: swap;
+  src: url("../public/fonts/MilauDemo.otf") format('opentype');
+  font-display: swap; 
 }
 
 .stack {
