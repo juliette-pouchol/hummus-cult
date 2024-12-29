@@ -94,13 +94,17 @@ export default function HaasSection() {
         </Typography>
         <br />
         <Stack width={isMobile ? "80%" : "100%"}>
-          <Typography variant={"body2"}>
+          <Typography variant={"body2"} fontFamily="var(--font-milau)">
             The next big step forward in hummus innovation.
           </Typography>
-          <Typography variant={"body2"}>
+          <Typography variant={"body2"} fontFamily="var(--font-milau)">
             Sign up and have fresh hummus delivered to your door.
           </Typography>
-          <Typography style={{}} variant={isMobile ? "h2" : "h3"}>
+          <Typography
+            style={{}}
+            variant={isMobile ? "h2" : "h3"}
+            fontFamily="var(--font-milau)"
+          >
             <span style={{ color: "#ECA74E" }}>Cheap.</span>{" "}
             {isMobile && <br />}
             <span style={{ color: "#FF6633" }}>Nutritious.</span>{" "}

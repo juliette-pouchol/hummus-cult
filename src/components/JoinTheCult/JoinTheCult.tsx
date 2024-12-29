@@ -21,8 +21,11 @@ export default function JoinTheCult() {
     <>
       <Stack className={styles.container} gap={isMobile ? 3 : 10}>
         <Stack gap={1}>
-          <Typography variant="h2">Join the Cult</Typography>
+          <Typography fontFamily="var(--font-milau)" variant="h2">
+            Join the Cult
+          </Typography>
           <Typography
+            fontFamily="var(--font-milau)"
             variant="body2"
             style={{
               color: "#FF6633",
@@ -43,7 +46,10 @@ export default function JoinTheCult() {
           }}
         />
         {isMobile && <br />}
-        <Typography style={{ fontSize: isMobile ? "10px" : "12px" }}>
+        <Typography
+          fontFamily="var(--font-milau)"
+          style={{ fontSize: isMobile ? "10px" : "12px" }}
+        >
           *Due to massive popularity and following we are currently
           oversubscribed in every region that we operate.
         </Typography>
@@ -55,7 +61,7 @@ export default function JoinTheCult() {
 function CultForm() {
   return (
     <Stack gap={2}>
-      <Typography variant={"body2"}>
+      <Typography fontFamily="var(--font-milau)" variant={"body2"}>
         Sign up for the{" "}
         <Link
           style={{ color: "#ABF1D0" }}
