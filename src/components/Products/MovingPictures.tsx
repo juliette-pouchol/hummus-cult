@@ -5,10 +5,12 @@ import styles from "./Products.module.css";
 import lemonBuddha from "../../../images/hummus-cult/lemon-buddha.png";
 import garlicJesus from "../../../images/hummus-cult/garlic-jesus.png";
 
-const TWEEN = {
-  type: "tween",
+export const TWEEN = {
   duration: 0.5,
-  ease: "easeInOut",
+  type: "spring",
+  bounce: 0.2, // Reduced bounce
+  damping: 20, // Increased damping
+  stiffness: 80, // Adjusted stiffness
 };
 
 export default function Products({ hasClicked }: { hasClicked: boolean }) {

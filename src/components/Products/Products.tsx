@@ -6,12 +6,7 @@ import lemon from "../../../images/hummus-cult/lemon.png";
 import garlicJesus from "../../../images/hummus-cult/garlic-jesus.png";
 import garlic from "../../../images/hummus-cult/garlic.png";
 import { useState, useEffect } from "react";
-
-const TWEEN = {
-  type: "tween",
-  duration: 1,
-  ease: "easeInOut",
-};
+import { TWEEN } from "./MovingPictures";
 
 export default function Products({ hasClicked }: { hasClicked: boolean }) {
   const [isMobile, setIsMobile] = useState(false);
