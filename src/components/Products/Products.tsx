@@ -42,6 +42,7 @@ export default function Products({ hasClicked }: { hasClicked: boolean }) {
           fontSize: isMobile ? "20px" : "40px",
           fontWeight: "bold",
           textDecoration: "underline",
+          textUnderlineOffset: 10,
           position: "relative",
           margin: 0,
         }}
