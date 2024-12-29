@@ -61,7 +61,7 @@
         padding-bottom: 10px;
     }
     .productsStack {
-        flex-direction: column;
+        flex-direction: column !important;
         display: flex;
         gap: 20px;
     }

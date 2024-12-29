@@ -41,7 +41,7 @@ export default function Products({ hasClicked }: { hasClicked: boolean }) {
         paddingBottom: hasClicked ? 10 : 0,
       }}
     >
-      <MotionP
+      <MotionDiv
         style={{
           fontFamily: "var(--font-milau)",
           fontSize: isMobile ? "20px" : "40px",
@@ -66,8 +66,8 @@ export default function Products({ hasClicked }: { hasClicked: boolean }) {
         layout={"position"}
         transition={TWEEN}
       >
-        Two dank flavours
-      </MotionP>
+        <Typography variant="h2">Two dank flavours</Typography>
+      </MotionDiv>
       <Stack className={styles.productsStack}>
         <Product
           layoutId="buddha"
