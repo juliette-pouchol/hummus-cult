@@ -6,7 +6,7 @@ import lemonBuddha from "../../../images/hummus-cult/lemon-buddha.png";
 import garlicJesus from "../../../images/hummus-cult/garlic-jesus.png";
 
 export const TWEEN = {
-  duration: 0.5,
+  duration: 1,
   type: "spring",
   bounce: 0.2, // Reduced bounce
   damping: 20, // Increased damping
@@ -95,6 +95,7 @@ function Product({
       initial={{
         x: positions.x,
         y: positions.y,
+        opacity: 1,
       }}
       transition={{
         ...TWEEN,

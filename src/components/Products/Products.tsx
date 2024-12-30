@@ -5,10 +5,11 @@ import lemonBuddha from "../../../images/hummus-cult/lemon-buddha.png";
 import lemon from "../../../images/hummus-cult/lemon.png";
 import garlicJesus from "../../../images/hummus-cult/garlic-jesus.png";
 import garlic from "../../../images/hummus-cult/garlic.png";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { TWEEN } from "./MovingPictures";
+import { useInView } from "framer-motion";
 
-export default function Products({ hasClicked }: { hasClicked: boolean }) {
+export default function Products({ isInView }: { isInView: boolean }) {
   const [isMobile, setIsMobile] = useState(false);
   const [positions, setPositions] = useState({
     jesusImageX: 0,
@@ -16,15 +17,15 @@ export default function Products({ hasClicked }: { hasClicked: boolean }) {
     buddhaImageX: 0,
     buddhaImageY: 0,
   });
+
   useEffect(() => {
     const isMobileCheck = window.innerWidth < 600;
     setIsMobile(isMobileCheck);
 
-    const middleOfScreen = window.innerWidth / 2;
     setPositions({
-      jesusImageX: isMobileCheck ? middleOfScreen / 2 - 120 : -150,
+      jesusImageX: window.innerWidth,
       jesusImageY: isMobileCheck ? 380 : 280,
-      buddhaImageX: isMobileCheck ? middleOfScreen / 2 - 40 : 170,
+      buddhaImageX: -window.innerWidth,
       buddhaImageY: isMobileCheck ? 250 : 100,
     });
   }, []);
@@ -33,25 +34,22 @@ export default function Products({ hasClicked }: { hasClicked: boolean }) {
     <MotionDiv
       className={styles.productsContainer}
       animate={{
-        paddingBottom: hasClicked ? 10 : 0,
+        paddingBottom: isInView ? 10 : 0,
       }}
     >
       <MotionDiv
         style={{
           fontFamily: "var(--font-milau)",
           fontSize: isMobile ? "20px" : "40px",
-          fontWeight: "bold",
-          textDecoration: "underline",
-          textUnderlineOffset: 10,
           position: "relative",
           margin: 0,
         }}
         animate={{
-          opacity: hasClicked ? 1 : 0,
-          y: hasClicked ? 0 : -20,
-          height: hasClicked ? "auto" : 0,
-          marginBottom: hasClicked ? "1.5em" : 0,
-          pointerEvents: hasClicked ? "auto" : "none",
+          opacity: isInView ? 1 : 0,
+          y: isInView ? 0 : -20,
+          height: isInView ? "auto" : 0,
+          marginBottom: isInView ? "1.5em" : 0,
+          pointerEvents: isInView ? "auto" : "none",
         }}
         initial={{
           opacity: 0,
@@ -64,17 +62,23 @@ export default function Products({ hasClicked }: { hasClicked: boolean }) {
       >
         <Typography variant="h2">Two dank flavours</Typography>
       </MotionDiv>
-      <Stack className={styles.productsStack}>
+      <Stack
+        className={styles.productsStack}
+        style={{ alignItems: "flex-start" }}
+      >
         <Product
           layoutId="buddha"
           image={lemonBuddha.src}
           backgroundImage={lemon.src}
           title="Lemon Buddha"
           description="Lemon and turmeric to enlighten the mind."
-          ingredients="garbanzo beans, olive oil, lemon..."
-          hasClicked={hasClicked}
+          ingredients="garbanzo beans, olive oil, lemon juice, garlic, sea salt, herbs, spices."
+          isInView={isInView}
           isMobile={isMobile}
-          positions={{ x: positions.buddhaImageX, y: positions.buddhaImageY }}
+          positions={{
+            x: positions.buddhaImageX,
+            y: positions.buddhaImageY,
+          }}
         />
         <Product
           layoutId="jesus"
@@ -82,8 +86,8 @@ export default function Products({ hasClicked }: { hasClicked: boolean }) {
           backgroundImage={garlic.src}
           title="Garlic Jesus"
           description="Garlic and habanero spice to open the heart."
-          ingredients="garbanzo beans, olive oil, garlic..."
-          hasClicked={hasClicked}
+          ingredients="garbanzo beans, olive oil, lemon juice, garlic, balsamic vinegar, sea salt, red chile pepper, habanero pepper, spices."
+          isInView={isInView}
           isMobile={isMobile}
           positions={{ x: positions.jesusImageX, y: positions.jesusImageY }}
         />
@@ -98,7 +102,7 @@ function Product({
   title,
   description,
   ingredients,
-  hasClicked,
+  isInView,
   isMobile,
   positions,
   layoutId,
@@ -109,7 +113,7 @@ function Product({
   title: string;
   description: string;
   ingredients: string;
-  hasClicked: boolean;
+  isInView: boolean;
   isMobile: boolean;
   positions: {
     x: number;
@@ -122,19 +126,22 @@ function Product({
       layout={true}
       layoutId={layoutId}
       style={{
-        position: hasClicked ? "relative" : "absolute",
+        position: isInView ? "relative" : "absolute",
       }}
       animate={{
-        x: hasClicked ? 0 : positions.x,
-        y: hasClicked ? 0 : positions.y,
+        x: isInView ? 0 : positions.x,
+        y: isInView ? 0 : positions.y,
       }}
       initial={{
         x: positions.x,
         y: positions.y,
       }}
-      transition={TWEEN}
+      transition={{
+        ...TWEEN,
+        delay: 0.5,
+      }}
     >
-      <Stack className={styles.cultImageStack}>
+      <Stack className={styles.cultImageStack} gap={2}>
         <MotionImage
           layout="position"
           className={styles.cultImage}
@@ -143,7 +150,7 @@ function Product({
         <MotionDiv
           className={styles.productDescriptionContainer}
           animate={{
-            opacity: hasClicked ? 1 : 0,
+            opacity: isInView ? 1 : 0,
           }}
           initial={{ opacity: 0 }}
           transition={TWEEN}
@@ -151,21 +158,16 @@ function Product({
             backgroundImage: `url(${backgroundImage})`,
           }}
         >
-          <Typography
-            fontFamily="var(--font-milau)"
-            variant={isMobile ? "h5" : "body1"}
-          >
+          <Typography variant={"body1"} style={{ fontWeight: "bold" }}>
             {title}
           </Typography>
-          {!isMobile && <br />}
           <Typography
-            fontFamily="var(--font-milau)"
-            variant={isMobile ? "body2" : "h5"}
+            variant={"body2"}
             fontSize={isMobile ? "10px" : undefined}
           >
-            {description}
+            <span style={{ fontStyle: "italic" }}>{description}</span>
             {<br />}
-            {!isMobile && <br />}
+            <br />
             Ingredients: {ingredients}
           </Typography>
         </MotionDiv>

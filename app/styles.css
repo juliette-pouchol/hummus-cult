@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Gaegu:wght@400;700&display=swap');
+
+
 /*
   CSS RESET
   https://www.joshwcomeau.com/css/custom-css-reset/
@@ -132,7 +135,7 @@ h2,
 }
 h3,
 .MuiTypography-h3 {
-  font-family: var(--font-milau) !important;
+  font-family: 'gaegu' !important;
   font-size: 2rem !important;
   margin-top: 1em !important;
   margin-bottom: 0.5em !important;
@@ -140,13 +143,20 @@ h3,
 }
 p,
 .MuiTypography-body1 {
-  font-family: var(--font-milau) !important;
-  font-size: 1.25rem !important;
+  font-family: 'gaegu' !important;
+  font-size: 2rem !important;
 }
 .MuiTypography-body2 {
-  font-family: var(--font-milau) !important;
-  font-size: 1rem !important;
- 
+  font-family: 'gaegu' !important;
+  font-size: 1.5rem !important;
+}
+.MuiTypography-subtitle1 {
+  font-family: 'gaegu' !important;
+  font-size: 2.4rem !important;
+}
+.MuiTypography-subtitle2 {
+  font-family: 'gaegu' !important;
+  font-size: 1.8rem !important;
 }
 p code {
   display: inline-block;

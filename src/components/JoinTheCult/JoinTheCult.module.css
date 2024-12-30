@@ -5,12 +5,89 @@
   justify-items: center;
   align-items: center;
   text-align: center;
-  padding-bottom: 100px;
+}
+
+.cultForm {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card {
+  width: 30%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  border: 2px solid  #FF9966;
+  border-radius: 10px;
+  padding: 1rem;
+  margin: 1rem;
+}
+.typingAnimation {
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  animation: typing 5s steps(40, end) 1s forwards, blink-caret 0.75s step-end infinite;
+  border-right: 2px solid;
+}
+
+@keyframes typing {
+  0% {
+    width: 0;
+  }
+  50% {
+    width: 50%; /* Pause after "you're either in ..." */
+  }
+  60% {
+    width: 50%; /* Pause for 2 seconds */
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+@keyframes blink-caret {
+  from, to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: black;
+  }
+}
+
+.cardContainer {
+  width: 140%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+}
+
+#outOfStockButton {
+  background-color: rgba(128, 128, 128, 0.1);
+  color: #808080;
+  border: 1px solid #808080;
+  border-radius: 10px;
+  padding: 0.5rem;
+  margin-top: 1rem;
+  font-weight: bold;
+  height: 5rem;
+  font-family: var(--font-milau);
+  font-size: 1.5rem;
 }
 
 @media (max-width: 600px) {
   .container {
     width: 80%;
     padding-top: 0rem;
+  }
+  .cardContainer {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+  .card {
+    width: 60%;
   }
 }

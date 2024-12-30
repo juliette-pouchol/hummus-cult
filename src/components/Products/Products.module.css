@@ -20,8 +20,11 @@
     display: flex;
     flex-direction: column;
     padding-top: 20rem;
-    min-height: 1000px;
-    padding-bottom: 100px;
+    min-height: 1250px;
+    padding-bottom: 0;
+    width: 100%;
+    overflow: hidden;
+    
 }
 
 .productsStack {
@@ -57,30 +60,31 @@
 @media (max-width: 600px) {
     .cultImage {
         width: 200px;
-        padding-bottom: 10px;
+        align-self: center;
     }
     .decoration {
         width: 200px;
         position: absolute;
     }
     .productsContainer {
-        min-height: 500px;
+        min-height: 700px;
         justify-content: flex-start;
         padding-top: 0rem;
         padding-bottom: 10px;
     }
     .productsStack {
+        box-sizing: content-box;
         flex-direction: column !important;
+        align-self: center;
         display: flex;
         gap: 20px;
     }
     .cultImageStack {
-        gap: 1;
+        gap: 5;
         justify-content: flex-start;
         align-items: flex-start;
     }
     .productDescriptionContainer {
-        height: 15rem;
         padding: 2rem;
     }
     .movingPicturesContainer {
