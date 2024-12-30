@@ -4,10 +4,11 @@ import {
   Accordion,
   Stack,
   Typography,
+  Icon,
 } from "@mui/material";
 import { useState, useEffect } from "react";
 import styles from "./FAQs.module.css";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import downArrow from "../../../images/hummus-cult/down-arrow.png";
 
 export default function FAQs() {
   const [isMobile, setIsMobile] = useState(false);
@@ -30,6 +31,7 @@ export default function FAQs() {
           </Typography>
           <Stack gap={2}>
             <AccordionCard
+              isMobile={isMobile}
               title="How much is a pound of hummus actually? 🤔"
               content={
                 <Stack gap={2}>
@@ -80,6 +82,7 @@ export default function FAQs() {
                 </Typography>
               }
               index={2}
+              isMobile={isMobile}
             />
             <AccordionCard
               title="What ingredients do you use? 🌱"
@@ -91,6 +94,7 @@ export default function FAQs() {
                 </Typography>
               }
               index={3}
+              isMobile={isMobile}
             />
             <AccordionCard
               title="Do you deliver? 🚚"
@@ -101,6 +105,7 @@ export default function FAQs() {
                 </Typography>
               }
               index={4}
+              isMobile={isMobile}
             />
             <AccordionCard
               title="How long does it last? ⏰"
@@ -112,6 +117,7 @@ export default function FAQs() {
                 </Typography>
               }
               index={5}
+              isMobile={isMobile}
             />
           </Stack>
         </Stack>
@@ -124,15 +130,38 @@ function AccordionCard({
   title,
   index,
   content,
+  isMobile,
 }: {
   title: string;
   index: number;
   content: React.ReactNode;
+  isMobile: boolean;
 }) {
   return (
     <Accordion>
       <AccordionSummary
-        expandIcon={<ExpandMoreIcon />}
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
+          width: "100%",
+        }}
+        expandIcon={
+          <Stack
+            style={{
+              flex: 1,
+              width: "40px",
+              paddingLeft: "10px",
+              marginRight: "10px",
+            }}
+          >
+            <img
+              width={isMobile ? "20px" : "30px"}
+              src={downArrow.src}
+              alt="down arrow"
+            />
+          </Stack>
+        }
         aria-controls={`panel${index}-content`}
         id={`panel${index}-header`}
       >
