@@ -129,7 +129,7 @@ h1,
 h2,
 .MuiTypography-h2 {
   font-size: 3rem !important;
-  margin-top: 0.5em !important;
+  margin-top: 0.1em !important;
   font-weight: 200 !important;
   font-family: var(--font-milau) !important;
 }
@@ -152,7 +152,7 @@ p,
 }
 .MuiTypography-subtitle1 {
   font-family: 'gaegu' !important;
-  font-size: 2.4rem !important;
+  font-size: 1.4rem !important;
 }
 .MuiTypography-subtitle2 {
   font-family: 'gaegu' !important;
@@ -201,6 +201,10 @@ button {
   .MuiTypography-body2 {
     font-size: 3rem !important;
   }
+  .MuiTypography-subtitle1 {
+  font-family: 'gaegu' !important;
+  font-size: 2.4rem !important;
+}
 }
 .header {
   position: relative;

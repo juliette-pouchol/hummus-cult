@@ -43,6 +43,9 @@ export default function Products({ isInView }: { isInView: boolean }) {
           fontSize: isMobile ? "20px" : "40px",
           position: "relative",
           margin: 0,
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
         }}
         animate={{
           opacity: isInView ? 1 : 0,
@@ -60,6 +63,9 @@ export default function Products({ isInView }: { isInView: boolean }) {
         layout={"position"}
         transition={TWEEN}
       >
+        <Typography variant="subtitle1" fontStyle="italic">
+          We spent 6 months testing recipes, and came up with
+        </Typography>
         <Typography variant="h2">Two dank flavours</Typography>
       </MotionDiv>
       <Stack
@@ -158,14 +164,19 @@ function Product({
             backgroundImage: `url(${backgroundImage})`,
           }}
         >
-          <Typography variant={"body1"} style={{ fontWeight: "bold" }}>
+          <Typography
+            variant={"body1"}
+            style={{ textAlign: "center", fontWeight: "bold" }}
+          >
             {title}
           </Typography>
           <Typography
             variant={"body2"}
             fontSize={isMobile ? "10px" : undefined}
           >
-            <span style={{ fontStyle: "italic" }}>{description}</span>
+            <span style={{ fontStyle: "italic", textAlign: "center" }}>
+              {description}
+            </span>
             {<br />}
             <br />
             Ingredients: {ingredients}

@@ -31,6 +31,17 @@ export default function FAQs() {
           </Typography>
           <Stack gap={2}>
             <AccordionCard
+              index={0}
+              isMobile={isMobile}
+              title="Is this a business? 💸"
+              content={
+                <Typography variant="body2">
+                  No, Man, this is a donation & gifting cult.
+                </Typography>
+              }
+            />
+            <AccordionCard
+              index={1}
               isMobile={isMobile}
               title="How much is a pound of hummus actually? 🤔"
               content={
@@ -70,7 +81,6 @@ export default function FAQs() {
                   </Typography>
                 </Stack>
               }
-              index={1}
             />
             <AccordionCard
               title="Is this actually a cult? 😳"
@@ -165,7 +175,9 @@ function AccordionCard({
         aria-controls={`panel${index}-content`}
         id={`panel${index}-header`}
       >
-        <Typography component="span">{title}</Typography>
+        <Typography variant="body2" component="span">
+          {title}
+        </Typography>
       </AccordionSummary>
       <AccordionDetails>{content}</AccordionDetails>
     </Accordion>
