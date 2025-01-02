@@ -130,6 +130,11 @@ export default function FAQs() {
               isMobile={isMobile}
             />
           </Stack>
+          <Typography variant="subtitle1" style={{ textAlign: "center" }}>
+            To learn more about upcoming events and exclusive hummus cult sales,
+            send us an email at{" "}
+            <a href="mailto:hummuscult@gmail.com">hummuscult@gmail.com</a>.
+          </Typography>
         </Stack>
       </Stack>
     </>
